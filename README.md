@@ -25,4 +25,4 @@ A simple, server-rendered PHP inventory management application with PostgreSQL.
 
 ## Quick 
 
-[Website](#inventory-management-system-production-3e3e.up.railway.appe)
+<a href="inventory-management-system-production-3e3e.up.railway.appe">Website</a>
