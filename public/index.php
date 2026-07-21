@@ -42,9 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit();
             } else {
                 // Debug info
-                $error = 'Hash length: ' . strlen($storedHash) .
-                    ' | Input length: ' . strlen($inputPassword) .
-                    ' | Verify: false';
+                $error = 'Invalid username or password';
             }
         } else {
             $error = 'Invalid username or password';
