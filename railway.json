@@ -1,6 +1,9 @@
 {
   "build": {
-    "builder": "NIXPACKS"
+    "builder": "NIXPACKS",
+    "nixpacks": {
+      "pkgs": ["php", "php82Extensions.pdo_pgsql", "php82Extensions.pgsql"]
+    }
   },
   "deploy": {
     "startCommand": "php -S 0.0.0.0:$PORT -t public/ public/router.php",
