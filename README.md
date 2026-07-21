@@ -25,17 +25,4 @@ A simple, server-rendered PHP inventory management application with PostgreSQL.
 
 ## Quick Start
 
-### Prerequisites
-
-- PHP 7.4+ with PDO PostgreSQL extension
-- PostgreSQL 12+
-- Web server (Apache/Nginx) or PHP built-in server
-
-### Installation
-
-1. Clone the repository:
-
-```bash
-git clone <your-repo-url>
-cd inventory-system
-```
+(inventory-management-system-production-3e3e.up.railway.app)
