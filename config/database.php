@@ -27,10 +27,10 @@ if (file_exists(__DIR__ . '/../.env')) {
 }
 
 return [
-    'host' => getenv('DB_HOST'),
-    'port' => getenv('DB_PORT'),
-    'database' => getenv('DB_NAME'),
-    'username' => getenv('DB_USER'),
-    'password' => getenv('DB_PASSWORD'),
+    'host' => getenv('PGHOST'),          
+    'port' => getenv('PGPORT'),          // Railway auto-provides this
+    'database' => getenv('PGDATABASE'),  
+    'username' => getenv('PGUSER'),      
+    'password' => getenv('PGPASSWORD'),  
     'driver' => 'pgsql'
 ];
