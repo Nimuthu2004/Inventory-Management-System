@@ -1,30 +1,5 @@
 <?php
 
-/**
- * Database Configuration
- * Uses environment variables for sensitive data
- */
-
-// Load environment variables if .env file exists (for local development)
-if (file_exists(__DIR__ . '/../.env')) {
-    $envFile = file_get_contents(__DIR__ . '/../.env');
-    $lines = explode("\n", $envFile);
-    foreach ($lines as $line) {
-        $line = trim($line);
-        if (empty($line) || strpos($line, '#') === 0) {
-            continue;
-        }
-        if (strpos($line, '=') !== false) {
-            list($key, $value) = explode('=', $line, 2);
-            $key = trim($key);
-            $value = trim($value);
-            $value = trim($value, '"\'');
-            putenv("$key=$value");
-            $_ENV[$key] = $value;
-        }
-    }
-}
-
 // Get database config from environment
 $host = getenv('PGHOST') ?: getenv('DB_HOST') ?: 'localhost';
 $port = getenv('PGPORT') ?: getenv('DB_PORT') ?: '5432';

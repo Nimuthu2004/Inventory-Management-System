@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Database Connection
- * Creates PDO connection to PostgreSQL database
- */
-
-// Database configuration
 $config = require_once __DIR__ . '/../config/database.php';
 
 try {
