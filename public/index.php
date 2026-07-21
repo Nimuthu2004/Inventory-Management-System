@@ -1,12 +1,7 @@
 <?php
 // public/index.php - Login Page
 
-// Set secure session parameters - MUST be before session_start()
-ini_set('session.cookie_httponly', 1);
-ini_set('session.cookie_secure', isset($_SERVER['HTTPS']) ? 1 : 0);
-ini_set('session.use_strict_mode', 1);
-
-// Now start the session
+// Start session first
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -27,18 +22,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$username]);
         $user = $stmt->fetch();
 
-        if ($user && password_verify($password, $user['password_hash'])) {
-            // Successful login
-            session_regenerate_id(true);
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['full_name'] = $user['full_name'];
-            $_SESSION['role'] = $user['role'];
-            $_SESSION['login_time'] = time();
+        if ($user) {
+            // Debug: Check password verification
+            $verify = password_verify($password, $user['password_hash']);
 
-            // Redirect to dashboard
-            header('Location: /src/dashboard/');
-            exit();
+            if ($verify) {
+                // Successful login
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['full_name'] = $user['full_name'];
+                $_SESSION['role'] = $user['role'];
+                $_SESSION['login_time'] = time();
+
+                // Redirect to dashboard
+                header('Location: /src/dashboard/');
+                exit();
+            } else {
+                $error = 'Invalid username or password';
+                // Debug line - remove after testing
+                // $error = 'Hash: ' . $user['password_hash'] . ' Verify: ' . ($verify ? 'true' : 'false');
+            }
         } else {
             $error = 'Invalid username or password';
         }
