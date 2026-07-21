@@ -1,0 +1,31 @@
+# Environment files
+.env
+.env.local
+.env.production
+
+# Database files
+*.sqlite
+*.db
+
+# Upload folders
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Composer
+vendor/
+composer.lock
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

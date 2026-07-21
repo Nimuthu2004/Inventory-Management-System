@@ -1,0 +1,41 @@
+# Inventory Management System
+
+A simple, server-rendered PHP inventory management application with PostgreSQL.
+
+## Features
+
+- 🔐 User authentication (login/logout)
+- 👥 Role-based access control (Admin/User)
+- 📦 Product management (CRUD)
+- 🏷️ Category management (CRUD)
+- 🏢 Supplier management (CRUD)
+- 📊 Stock In/Out transactions
+- 📈 Reports (inventory & transaction history)
+- 🔍 Search and filter products
+- ⚠️ Low stock alerts
+- 👑 Admin user management
+
+## Tech Stack
+
+- **Backend**: PHP 7.4+ (no framework)
+- **Database**: PostgreSQL 12+
+- **Frontend**: Vanilla HTML, CSS, JavaScript
+- **Authentication**: PHP sessions + bcrypt password hashing
+- **Security**: Prepared statements (PDO), XSS protection
+
+## Quick Start
+
+### Prerequisites
+
+- PHP 7.4+ with PDO PostgreSQL extension
+- PostgreSQL 12+
+- Web server (Apache/Nginx) or PHP built-in server
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <your-repo-url>
+cd inventory-system
+```
