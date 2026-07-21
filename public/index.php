@@ -9,7 +9,7 @@ ini_set('session.use_strict_mode', 1);
 // Now start the session
 session_start();
 
-require_once '../includes/db_connection.php';
+require_once __DIR__ . '/../includes/db_connection.php';
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
