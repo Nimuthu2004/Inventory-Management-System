@@ -23,6 +23,6 @@ A simple, server-rendered PHP inventory management application with PostgreSQL.
 - **Authentication**: PHP sessions + bcrypt password hashing
 - **Security**: Prepared statements (PDO), XSS protection
 
-## Quick Start
+## Quick 
 
-[Website](inventory-management-system-production-3e3e.up.railway.appe)
+[Website](#inventory-management-system-production-3e3e.up.railway.appe)
