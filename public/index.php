@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $error = 'Invalid username or password';
                 // Debug line - remove after testing
-                // $error = 'Hash: ' . $user['password_hash'] . ' Verify: ' . ($verify ? 'true' : 'false');
+                $error = 'Hash: ' . $user['password_hash'] . ' Verify: ' . ($verify ? 'true' : 'false');
             }
         } else {
             $error = 'Invalid username or password';
