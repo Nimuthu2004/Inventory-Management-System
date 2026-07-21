@@ -23,8 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch();
 
         if ($user) {
-            // Debug: Check password verification
-            $verify = password_verify($password, $user['password_hash']);
+            // Clean values
+            $storedHash = trim($user['password_hash']);
+            $inputPassword = trim($password);
+
+            $verify = password_verify($inputPassword, $storedHash);
 
             if ($verify) {
                 // Successful login
@@ -38,9 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: /src/dashboard/');
                 exit();
             } else {
-                $error = 'Invalid username or password';
-                // Debug line - remove after testing
-                $error = 'Hash: ' . $user['password_hash'] . ' Verify: ' . ($verify ? 'true' : 'false');
+                // Debug info
+                $error = 'Hash length: ' . strlen($storedHash) .
+                    ' | Input length: ' . strlen($inputPassword) .
+                    ' | Verify: false';
             }
         } else {
             $error = 'Invalid username or password';
