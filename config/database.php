@@ -5,7 +5,7 @@
  * Uses environment variables for sensitive data
  */
 
-// Load environment variables if .env file exists
+// Load environment variables if .env file exists (for local development)
 if (file_exists(__DIR__ . '/../.env')) {
     $envFile = file_get_contents(__DIR__ . '/../.env');
     $lines = explode("\n", $envFile);
@@ -18,7 +18,6 @@ if (file_exists(__DIR__ . '/../.env')) {
             list($key, $value) = explode('=', $line, 2);
             $key = trim($key);
             $value = trim($value);
-            // Remove quotes if present
             $value = trim($value, '"\'');
             putenv("$key=$value");
             $_ENV[$key] = $value;
@@ -26,11 +25,18 @@ if (file_exists(__DIR__ . '/../.env')) {
     }
 }
 
+// Get database config from environment
+$host = getenv('PGHOST') ?: getenv('DB_HOST') ?: 'localhost';
+$port = getenv('PGPORT') ?: getenv('DB_PORT') ?: '5432';
+$database = getenv('PGDATABASE') ?: getenv('DB_NAME') ?: 'inventory_system';
+$username = getenv('PGUSER') ?: getenv('DB_USER') ?: 'postgres';
+$password = getenv('PGPASSWORD') ?: getenv('DB_PASSWORD') ?: '';
+
 return [
-    'host' => getenv('PGHOST'),          
-    'port' => getenv('PGPORT'),          // Railway auto-provides this
-    'database' => getenv('PGDATABASE'),  
-    'username' => getenv('PGUSER'),      
-    'password' => getenv('PGPASSWORD'),  
+    'host' => $host,
+    'port' => $port,
+    'database' => $database,
+    'username' => $username,
+    'password' => $password,
     'driver' => 'pgsql'
 ];

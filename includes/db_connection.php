@@ -24,18 +24,15 @@ try {
         PDO::ATTR_EMULATE_PREPARES => false
     ]);
 } catch (PDOException $e) {
-    // Log error and show user-friendly message
+    // Show detailed error for debugging
     error_log("Database Connection Error: " . $e->getMessage());
-    die("Database connection failed. Please try again later.");
-}
 
-// In includes/db_connection.php
-// Consider adding:
-set_exception_handler(function ($e) {
-    error_log($e->getMessage());
-    if (ini_get('display_errors')) {
-        echo "Error: " . $e->getMessage();
-    } else {
-        include 'error.php';
-    }
-});
+    // Show more details
+    $errorMsg = "Database connection failed.<br>";
+    $errorMsg .= "Host: " . $config['host'] . "<br>";
+    $errorMsg .= "Port: " . $config['port'] . "<br>";
+    $errorMsg .= "Database: " . $config['database'] . "<br>";
+    $errorMsg .= "Error: " . $e->getMessage();
+
+    die($errorMsg);
+}
