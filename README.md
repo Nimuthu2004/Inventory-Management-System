@@ -27,5 +27,5 @@ A simple, server-rendered PHP inventory management application with PostgreSQL.
 
 [Link text](https://inventory-management-system-production-3e3e.up.railway.app/)
 
-username : admin
-password : admin123
+- username : admin
+- password : admin123
