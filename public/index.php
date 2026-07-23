@@ -87,13 +87,6 @@ if (isset($_SESSION['user_id'])) {
             <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
         </form>
 
-        <br>
-
-        <div class="alert" style="background:#e8f4fd; color:#2c3e50; border:1px solid #bee3f8;">
-            <strong>Demo accounts</strong> (password: <code>password123</code>)<br>
-            admin@example.com &middot; pm@example.com &middot; member@example.com
-        </div>
-
     </div>
 </body>
 
