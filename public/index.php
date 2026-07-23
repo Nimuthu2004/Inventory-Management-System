@@ -70,6 +70,12 @@ if (isset($_SESSION['user_id'])) {
 <body>
     <div class="login-container">
         <h2>Inventory Management System</h2>
+
+        <div class="alert" style="background:#e8f4fd; color:#2c3e50; border:1px solid #bee3f8;">
+            <strong>Demo accounts</strong> (password: <code>password123</code>)<br>
+            admin@example.com &middot; pm@example.com &middot; member@example.com
+        </div>
+
         <?php if ($error): ?>
             <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
